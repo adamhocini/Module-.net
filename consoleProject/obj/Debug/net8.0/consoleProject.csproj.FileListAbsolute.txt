@@ -1,0 +1,14 @@
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Debug/net8.0/consoleProject
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Debug/net8.0/consoleProject.deps.json
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Debug/net8.0/consoleProject.runtimeconfig.json
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Debug/net8.0/consoleProject.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Debug/net8.0/consoleProject.pdb
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/obj/Debug/net8.0/consoleProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/obj/Debug/net8.0/consoleProject.AssemblyInfoInputs.cache
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/obj/Debug/net8.0/consoleProject.AssemblyInfo.cs
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/obj/Debug/net8.0/consoleProject.csproj.CoreCompileInputs.cache
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/obj/Debug/net8.0/consoleProject.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/obj/Debug/net8.0/refint/consoleProject.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/obj/Debug/net8.0/consoleProject.pdb
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/obj/Debug/net8.0/consoleProject.genruntimeconfig.cache
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/obj/Debug/net8.0/ref/consoleProject.dll

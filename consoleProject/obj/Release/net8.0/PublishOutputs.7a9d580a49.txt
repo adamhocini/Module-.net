@@ -1,0 +1,5 @@
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Release/net8.0/publish/consoleProject
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Release/net8.0/publish/consoleProject.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Release/net8.0/publish/consoleProject.deps.json
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Release/net8.0/publish/consoleProject.runtimeconfig.json
+/Users/adamhocini/Documents/Isitech/B3/dotnet/consoleProject/bin/Release/net8.0/publish/consoleProject.pdb
