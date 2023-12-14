@@ -35,7 +35,7 @@ public class BookController : ControllerBase
 
     // Ceci est une annotation, elle permet de définir des métadonnées sur une méthode
     // ActionResult designe le type de retour de la méthode de controller d'api
-    [Authorize]
+    //[Authorize]
     [HttpGet]
     public async Task<ActionResult<List<BookDto>>> GetBooks()
     {
@@ -52,9 +52,24 @@ public class BookController : ControllerBase
         return Ok(booksDto);
 
     }
+    //[HttpGet]
+    //public async Task<ActionResult<List<BookDto>>> GetBooks()
+    //{
+    //    var books = await _dbContext.Books.ToListAsync();
+    //
+    //    var booksDto = new List<BookDto>();
+    //
+    //    foreach (var book in books)
+    //    {
+    //        booksDto.Add(_mapper.Map<BookDto>(book));
+    //    }
+    //    return Ok(booksDto);
+    //}
+
+    
     // POST: api/Book
     // BODY: Book (JSON)
-    [Authorize]
+    //[Authorize]
     [HttpPost]
     [ProducesResponseType(201, Type = typeof(Book))]
     [ProducesResponseType(400)]
