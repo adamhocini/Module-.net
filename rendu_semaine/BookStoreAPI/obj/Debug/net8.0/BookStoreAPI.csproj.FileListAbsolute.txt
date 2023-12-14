@@ -126,3 +126,5 @@
 /Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/obj/Debug/net8.0/BookStoreAPI.pdb
 /Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/obj/Debug/net8.0/BookStoreAPI.genruntimeconfig.cache
 /Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/obj/Debug/net8.0/ref/BookStoreAPI.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/bin/Debug/net8.0/AutoMapper.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/bin/Debug/net8.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
