@@ -128,3 +128,7 @@
 /Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/obj/Debug/net8.0/ref/BookStoreAPI.dll
 /Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/bin/Debug/net8.0/AutoMapper.dll
 /Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/bin/Debug/net8.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/bin/Debug/net8.0/Scrutor.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/bin/Debug/net8.0/Swashbuckle.AspNetCore.Filters.dll
+/Users/adamhocini/Documents/Isitech/B3/dotnet/rendu_semaine/BookStoreAPI/bin/Debug/net8.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll
