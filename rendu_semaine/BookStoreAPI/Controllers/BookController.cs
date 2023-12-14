@@ -52,7 +52,7 @@ public class BookController : ControllerBase
         return Ok(booksDto);
 
     }
-    
+
     //[HttpGet]
     //public async Task<ActionResult<List<BookDto>>> GetBooks()
     //{
@@ -118,8 +118,8 @@ public class BookController : ControllerBase
         {
             return NotFound();
         }
-
-        bookToUpdate.Author = book.Author;
+// a decommenter apres
+        //bookToUpdate.Author = book.Author;
         // continuez pour les autres propriétés
 
         _dbContext.Entry(bookToUpdate).State = EntityState.Modified;

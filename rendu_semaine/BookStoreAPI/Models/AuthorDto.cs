@@ -1,8 +1,8 @@
 namespace BookStoreAPI.Models;
 
-public class BookDto
+public class AuthorDto
 {
-    public string Title { get; init; } = default!;
+    public string Name { get; init; } = default!;
     
     public string? Author { get; set; }
 

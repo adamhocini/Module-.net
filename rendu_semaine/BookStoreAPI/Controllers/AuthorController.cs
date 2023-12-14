@@ -20,99 +20,127 @@ namespace BookStoreAPI.Controllers; // BookStoreAPI est l'espace de nom racine d
 // On parle aussi de decorator / décorateur
 [ApiController]
 [Route("api/[controller]")]
-public class BookController : ControllerBase
+public class AuthorController : ControllerBase
 {
 
     private readonly ApplicationDbContext _dbContext;
-    private readonly IMapper _mapper;
-
-    public AuthorController(ApplicationDbContext dbContext, IMapper mapper)
-    {
-        _dbContext = dbContext;
-        _mapper = mapper;
-    }
-
+        private readonly IMapper? _mapper;
+ 
+        public AuthorController(ApplicationDbContext dbContext, IMapper mapper)
+        {
+            _dbContext = dbContext;
+            _mapper = mapper;
+        }
 
     // Ceci est une annotation, elle permet de définir des métadonnées sur une méthode
     // ActionResult designe le type de retour de la méthode de controller d'api
     //[Authorize]
+
     [HttpGet]
-    public async Task<ActionResult<List<BookDto>>> GetAuthor()
+    public async Task<ActionResult<List<AuthorDto>>> GetAuthors()
     {
-        var authors = await _dbContext.author.ToListAsync();
+        var authors = await _dbContext.Authors.ToListAsync();
 
-        var booksDto = new List<BookDto>();
+        var authorsDto = new List<AuthorDto>();
 
-        foreach (var author in author)
+        foreach (var author in authors)
         {
-            booksDto.Add(_mapper.Map<BookDto>(author));
+            authorsDto.Add(_mapper.Map<AuthorDto>(author));
         }
 
 
-        return Ok(booksDto);
+        return Ok(authorsDto);
 
     }
+    // [HttpGet]
+    // public async Task<ActionResult<List<AuthorDto>>> GetAuthors()
+    // {
+    //     var authors = await _dbContext.Authors.ToListAsync();
+
+    //     var AuthorsDto = new List<AuthorDto>();
+
+    //     foreach (var author in authors)
+    //     {
+    //         authorsDto.Add(_mapper.Map<AuthorDto>(author));
+    //     }
+
+
+    //     return Ok(authorsDto);
+
+    // }
     
+    //[HttpGet]
+    //public async Task<ActionResult<List<BookDto>>> GetBooks()
+    //{
+    //    var books = await _dbContext.Books.ToListAsync();
+    //
+    //    var booksDto = new List<BookDto>();
+    //
+    //    foreach (var book in books)
+    //    {
+    //        booksDto.Add(_mapper.Map<BookDto>(book));
+    //    }
+    //    return Ok(booksDto);
+    //}
+
+
     // POST: api/Book
     // BODY: Book (JSON)
     //[Authorize]
     [HttpPost]
-    [ProducesResponseType(201, Type = typeof(Author))]
-    [ProducesResponseType(400)]
-    public async Task<ActionResult<Author>> PostBook([FromBody] Author author)
+[ProducesResponseType(201, Type = typeof(Author))]
+[ProducesResponseType(400)]
+public async Task<ActionResult<Author>> PostAuthor([FromBody] Author author)
+{
+    if (author == null)
     {
-        // we check if the parameter is null
-        if (author == null)
-        {
-            return BadRequest();
-        }
-        // we check if the Author already exists
-        Author? addedAuthor = await _dbContext.Author.FirstOrDefaultAsync(b => b.Title == author.Name);
-        if (addedAuthor != null)
-        {
-            return BadRequest("Ahtor already exists");
-        }
-        else
-        {
-            // we add the Author to the database
-            await _dbContext.Author.AddAsync(author);
-            await _dbContext.SaveChangesAsync();
-
-            // we return the book
-            return Created("api/author", author);
-
-        }
+        return BadRequest();
     }
 
-    // TODO: Add PUT and DELETE methods
-    // PUT: api/Author/5
-    // BODY: Book (JSON)
-    [HttpPut("{id}")]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> PutAuthor(int id, [FromBody] Author author)
+    // Vérifie si l'auteur existe déjà dans la base de données
+    bool authorExists = await _dbContext.Authors.AnyAsync(a => a.Name == author.Name);
+    if (authorExists)
     {
-        if (id != author.Id)
-        {
-            return BadRequest();
-        }
-        var authorToUpdate = await _dbContext.Author.FirstOrDefaultAsync(b => b.Id == id);
-
-        if (authorToUpdate == null)
-        {
-            return NotFound();
-        }
-
-        AuthorToUpdate.Author = author.Author;
-
-        _dbContext.Entry(authorToUpdate).State = EntityState.Modified;
+        return BadRequest("Author already exists");
+    }
+    else
+    {
+        // Ajoute le nouvel auteur à la base de données
+        await _dbContext.Authors.AddAsync(author);
         await _dbContext.SaveChangesAsync();
-        return NoContent();
+
+        // Retourne une réponse indiquant la création réussie de l'auteur
+        return Created("api/author", author);
     }
+}
+
+[HttpPut("{id}")]
+[ProducesResponseType(204)]
+[ProducesResponseType(400)]
+[ProducesResponseType(404)]
+public async Task<IActionResult> PutAuthor(int id, [FromBody] Author author)
+{
+    if (id != author.Id)
+    {
+        return BadRequest();
+    }
+
+    var authorToUpdate = await _dbContext.Authors.FirstOrDefaultAsync(a => a.Id == id);
+
+    if (authorToUpdate == null)
+    {
+        return NotFound();
+    }
+
+    authorToUpdate.Name = author.Name; // Assurez-vous de mettre à jour les propriétés correctes
+
+    _dbContext.Entry(authorToUpdate).State = EntityState.Modified;
+    await _dbContext.SaveChangesAsync();
+    return NoContent();
+}
 
     [HttpPost("validationTest")]
-    public ActionResult ValidationTest([FromBody] BookDto author)
+    public ActionResult ValidationTest([FromBody] AuthorDto author)
     {
         if (!ModelState.IsValid)
         {
@@ -124,15 +152,15 @@ public class BookController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<ActionResult<Author>> DeleteAuthor(int id)
     {
-        var authorToDelete = await _dbContext.Author.FindAsync(id);
-        // var bookToDelete = await _dbContext.Books.FirstOrDefaultAsync(b => b.Id == id);
+        var authorToDelete = await _dbContext.Authors.FindAsync(id);
+        // var authorToDelete = await _dbContext.Authors.FirstOrDefaultAsync(b => b.Id == id);
 
         if (authorToDelete == null)
         {
             return NotFound();
         }
 
-        _dbContext.Author.Remove(authorToDelete);
+        _dbContext.Authors.Remove(authorToDelete);
         await _dbContext.SaveChangesAsync();
         return NoContent();
     }
